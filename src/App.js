@@ -1,15 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import Gamedisplay from './Components/Gamedisplay';
-import Cardpicker from './Components/Cardpicker';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Homepage from "./Components/Homepage";
+import Gamedisplay from "./Components/Gamedisplay";
 
 function App() {
   return (
-    <div className='container mx-auto text-center'>
-      <h1 className='my-5 border rounded w-1/2 p-2 mx-auto'>Mathcardgame</h1>
-      <Gamedisplay/>
-      <Cardpicker/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/game" element={<Gamedisplay />} />
+      </Routes>
+    </Router>
   );
 }
 
