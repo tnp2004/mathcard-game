@@ -18,7 +18,7 @@ const Gamedisplay = () => {
   useEffect(() => {
     setQuestion(random_question(questions_level_1))
   }, [])
-  if (question) {
+    if (question) {
     return (
       <div className="container mx-auto w-3/4 text-center p-1">
         <Playerhealthbar/>
