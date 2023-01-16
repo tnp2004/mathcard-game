@@ -1,12 +1,12 @@
 const Stageselecter = () => {
     return (
-        <div className="border-2 border-black h-16">
-            <ul className="flex gap-10 my-2">
-                <li className="border-2 border-black py-1 px-4 h-12 rounded-full">1</li>
-                <li className="border-2 border-black py-1 px-4 h-12 rounded-full">2</li>
-                <li className="border-2 border-black py-1 px-4 h-12 rounded-full">3</li>
-                <li className="border-2 border-black py-1 px-4 h-12 rounded-full">4</li>
-            </ul>
+        <div className="border-2 border-black p-1">
+           <div className="flex">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-10 h-10 rounded-full mx-auto">1</button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-10 h-10 rounded-full mx-auto">2</button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-10 h-10 rounded-full mx-auto">3</button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-10 h-10 rounded-full mx-auto">4</button>
+           </div>
         </div>
     )
 }
