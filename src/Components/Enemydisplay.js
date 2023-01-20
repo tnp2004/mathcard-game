@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react"
 import Enemy_1 from "../Images/monster_1.png"
 
-const Enemydisplay = () => {
+const Enemydisplay = (props) => {
+    const [health, setHealth] = useState()
+    const healthProgress = {width: health + "%"}
+
+    useEffect(() => {
+        setHealth(props.health)
+    }, [props])
     return (
         <div className="border-solid border-2 border-sky-500 bg-green-200 flex-auto">
             <div className="my-5">
-                <div className="border-2 border-black mx-auto bg-rose-500 w-3/4">health bar</div>
+                <label>health bar</label>
+                <div className="border-2 border-black mx-auto w-3/4">
+                    <div className="bg-rose-500 block" style={healthProgress}>{health}%</div>
+                </div>
                 <img className="mx-auto" src={Enemy_1} />
             </div>
         </div>

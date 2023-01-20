@@ -1,15 +1,23 @@
+import { useEffect, useState } from "react"
 import Cardelement from "./Cardelement"
+import Lazyload from "./Lazyload"
 
-const Cardpicker = () => {
+const Cardpicker = (props) => {
+    const [choices, setChoices] = useState([])
+    console.log(props)
+
+    useEffect(() => {
+        setChoices(props.choices)
+    }, [props])
+   if (choices) {
     return (
         <div className="border-solid border-2 border-sky-500 my-1 p-2 bg-green-200 flex justify-items-center items-center gap-5">
-            <Cardelement/>
-            <Cardelement/>
-            <Cardelement/>
-            <Cardelement/>
-            <Cardelement/>
+            {choices.map((value, index) => <Cardelement key={index} answer={value}/>)}
         </div>
     )
+   }
+
+   return <Lazyload/>
 }
 
 export default Cardpicker
