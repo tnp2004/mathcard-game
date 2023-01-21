@@ -4,10 +4,12 @@ import Enemy_1 from "../Images/monster_1.png"
 const Enemydisplay = (props) => {
     const [health, setHealth] = useState()
     const healthProgress = {width: health + "%"}
-
+    
     useEffect(() => {
+        console.log(props)
         setHealth(props.health)
     }, [props])
+ 
     return (
         <div className="border-solid border-2 border-sky-500 bg-green-200 flex-auto">
             <div className="my-5">

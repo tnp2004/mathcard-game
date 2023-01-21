@@ -3,52 +3,66 @@ import Enemydisplay from "./Enemydisplay";
 import Cardpicker from "./Cardpicker";
 import Stageselecter from "./Stageselecter";
 import Playerhealthbar from "./Playerhealthbar";
-import data from "../Questions.json"
-import { useContext, useEffect, useState } from "react";
+import data from "../Questions.json";
+import { useEffect, useState } from "react";
 import Lazyload from "./Lazyload";
-import DataContext from "../Data/DataContext";
+
+const enemy1 = {name:"monster1", health: 100}
 
 const Gamedisplay = () => {
-  const questions_level_1 = data.filter(data => data.level === 1)
-  const questions_level_2 = data.filter(data => data.level === 2)
-  const questions_level_3 = data.filter(data => data.level === 3)
-  const [question, setQuestion] = useState()
-  let [choices, setChoice] = useState()
-
-  const random_question = (data) => data[Math.floor(Math.random() * data.length)]
-
-  const useCheckAnswer = () => {
-    const ans = useContext(DataContext)
-    if (ans === question.answer) {
-      alert("correct")
+  const questions_level_1 = data.filter((data) => data.level === 1);
+  const questions_level_2 = data.filter((data) => data.level === 2);
+  const questions_level_3 = data.filter((data) => data.level === 3);
+  const [question, setQuestion] = useState();
+  const [choices, setChoice] = useState();
+  const [damageToEnemy, setDamageToEnemy] = useState()
+  const attackDamage = [21, 22, 23, 24, 25]
+  const [enemyHealth, setEnemyHealth] = useState(enemy1.health)
+  
+  const getPlayerAns = async (playerAnswer) => {
+    if (playerAnswer == question.answer) {
+      const health = enemyHealth - damageToEnemy
+      const damage = random(attackDamage)
+      setDamageToEnemy(damage)
+      setEnemyHealth(health)
+      console.log("1 "+health)
+      console.log("2 "+enemyHealth)
+      console.log("3 "+damageToEnemy)
     }
+    // console.log("incorrect")
   }
   
+  const random = (data) => data[Math.floor(Math.random() * data.length)];
+  
   useEffect(() => {
-    setQuestion(random_question(questions_level_1))
-  }, [])
-
+    setQuestion(random(questions_level_1));
+  }, []);
+  
   useEffect(() => {
-    if (question) setChoice(question.choices)
-  }, [question])
+    if (question) setChoice(question.choices);
+  }, [question]);
 
-    if (question) {
-    return (
+  if (question) {
+    return (      
       <div className="container mx-auto w-3/4 text-center p-1">
-        <Playerhealthbar/>
+        <Playerhealthbar />
         <div className="flex gap-1">
-          <Questiondisplay question={{"title": question.title, "question": question.question, "time": question.time}} />
-          <Enemydisplay/>
+          <Questiondisplay
+            question={{
+              title: question.title,
+              question: question.question,
+              time: question.time,
+            }}
+          />
+          <Enemydisplay health={enemyHealth} />
         </div>
-        <Cardpicker choices={choices}/>
-        <Stageselecter/>
+        <Cardpicker choices={choices} getPlayerAns={getPlayerAns} />
+        <Stageselecter />
       </div>
     );
   }
 
-  return (
-    <Lazyload/>
-  )
+  return <Lazyload />;
 };
 
 export default Gamedisplay;
