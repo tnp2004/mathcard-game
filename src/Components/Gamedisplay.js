@@ -1,7 +1,7 @@
 import Questiondisplay from "./Questiondisplay";
 import Enemydisplay from "./Enemydisplay";
 import Cardpicker from "./Cardpicker";
-import Stageselecter from "./Stageselecter";
+import Stageselecter from "./Stageselector";
 import Playerhealthbar from "./Playerhealthbar";
 import data from "../Questions.json";
 import { useEffect, useState } from "react";
@@ -16,6 +16,7 @@ const Gamedisplay = () => {
   const questions_level_1 = data.filter((data) => data.level === 1 && !data.isPass);
   const questions_level_2 = data.filter((data) => data.level === 2 && !data.isPass);
   const questions_level_3 = data.filter((data) => data.level === 3 && !data.isPass);
+  const [currentLevel, setCurrentLevel] = useState(1)
   const [question, setQuestion] = useState();
   const [choices, setChoice] = useState();
   const [points, setPoints] = useState(0);
@@ -61,12 +62,12 @@ const Gamedisplay = () => {
   }
 
   const currentPage = (val) => {
-    console.log(val)
+    setCurrentLevel(val)
   }
 
   useEffect(() => {
-    setQuestion(random(questions_level_2));
-  }, [points]);
+    setQuestion(random(eval(`questions_level_${currentLevel}`)));
+  }, [points, currentLevel]);
   
   useEffect(() => {
     if (question) setChoice(question.choices);

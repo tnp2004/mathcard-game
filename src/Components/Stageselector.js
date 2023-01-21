@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
-const Stageselecter = ({getCurrentPage}) => {
-    const [currentPage, setCurrentPage] = useState()
+const Stageselector = ({getCurrentPage}) => {
+    const [currentPage, setCurrentPage] = useState(1)
     useEffect(() => {
         getCurrentPage(currentPage)
     }, [currentPage])
@@ -18,4 +18,4 @@ const Stageselecter = ({getCurrentPage}) => {
     )
 }
 
-export default Stageselecter
+export default Stageselector
