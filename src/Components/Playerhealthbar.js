@@ -10,7 +10,7 @@ const Playerhealthbar = (props) => {
 
     return (
         <div className="border-2 border-black my-1">
-            <div className="bg-green-500" style={healthProgress}>
+            <div className="bg-green-500" id="myBar" style={healthProgress}>
                 {health}%
             </div>
         </div>

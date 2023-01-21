@@ -7,17 +7,18 @@ import data from "../Questions.json";
 import { useEffect, useState } from "react";
 import Lazyload from "./Lazyload";
 
-const enemy1 = {name:"monster1", health: 100}
+const enemy1 = {name:"monster1", health: 100} // set from stage level
 
 const random = (data) => data[Math.floor(Math.random() * data.length)];
 
 const Gamedisplay = () => {
   // question
-  const questions_level_1 = data.filter((data) => data.level === 1);
-  const questions_level_2 = data.filter((data) => data.level === 2);
-  const questions_level_3 = data.filter((data) => data.level === 3);
+  const questions_level_1 = data.filter((data) => data.level === 1 && !data.isPass);
+  const questions_level_2 = data.filter((data) => data.level === 2 && !data.isPass);
+  const questions_level_3 = data.filter((data) => data.level === 3 && !data.isPass);
   const [question, setQuestion] = useState();
   const [choices, setChoice] = useState();
+  const [points, setPoints] = useState(0);
 
   //attack damage
   const enemies_attackDamage = [21, 22, 23, 24, 25]
@@ -31,6 +32,7 @@ const Gamedisplay = () => {
   const [playerHealth, setPlayerHealth] = useState(100)
   const [playerDamage, setPlayerDamage] = useState(random(player_attackDamage))
   
+  // decrease health systems
   const decreaseHealth = (health, setHealth, attackDamage, damage, setDamage) => {
     const newDamage = random(attackDamage)
     setDamage(newDamage)
@@ -50,16 +52,21 @@ const Gamedisplay = () => {
     if (playerAnswer == question.answer) {
       // enemies decrease health
       decreaseHealth(enemyHealth, setEnemyHealth, player_attackDamage, playerDamage, setPlayerDamage)
-
+      if (question) question.isPass = true
+      setPoints(points + 1)
     } else {
       // player decrease health
       decreaseHealth(playerHealth, setPlayerHealth, enemies_attackDamage, enemiesDamage, setEnemiesDamage)
     }
   }
 
+  const currentPage = (val) => {
+    console.log(val)
+  }
+
   useEffect(() => {
-    setQuestion(random(questions_level_1));
-  }, []);
+    setQuestion(random(questions_level_2));
+  }, [points]);
   
   useEffect(() => {
     if (question) setChoice(question.choices);
@@ -80,7 +87,7 @@ const Gamedisplay = () => {
           <Enemydisplay name={enemy1.name} health={enemyHealth} />
         </div>
         <Cardpicker choices={choices} getPlayerAns={getPlayerAns} />
-        <Stageselecter />
+        <Stageselecter getCurrentPage={currentPage} />
       </div>
     );
   }
