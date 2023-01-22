@@ -20,7 +20,7 @@ const Gamedisplay = () => {
   const [question, setQuestion] = useState();
   const [choices, setChoice] = useState();
   const [points, setPoints] = useState(0);
-
+  console.log(points)
   //attack damage
   const enemies_attackDamage = [21, 22, 23, 24, 25]
   const player_attackDamage = [21, 22, 23, 24, 25]
@@ -61,8 +61,16 @@ const Gamedisplay = () => {
     }
   }
 
+  const resetQuestions = () => {
+    data.forEach(val => {
+      val.isPass = false
+    })
+  }
+
   const currentPage = (val) => {
     setCurrentLevel(val)
+    resetQuestions()
+    setPoints(0)
   }
 
   useEffect(() => {
