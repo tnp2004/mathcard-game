@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Lazyload from "./Lazyload";
 
 const enemy1 = {name:"monster1", health: 100} // set from stage level
+const enemy2 = {name:"monster2", health: 100} // set from stage level
 
 const random = (data) => data[Math.floor(Math.random() * data.length)];
 
@@ -17,16 +18,17 @@ const Gamedisplay = () => {
   const questions_level_2 = data.filter((data) => data.level === 2 && !data.isPass);
   const questions_level_3 = data.filter((data) => data.level === 3 && !data.isPass);
   const [currentLevel, setCurrentLevel] = useState(1)
+  const [currentEnemy, setCurrentEnemy] = useState(enemy1)
   const [question, setQuestion] = useState();
   const [choices, setChoice] = useState();
   const [points, setPoints] = useState(0);
-  console.log(points)
+  
   //attack damage
   const enemies_attackDamage = [21, 22, 23, 24, 25]
   const player_attackDamage = [21, 22, 23, 24, 25]
 
   // enemies systems
-  const [enemyHealth, setEnemyHealth] = useState(enemy1.health)
+  const [enemyHealth, setEnemyHealth] = useState(currentEnemy.health)
   const [enemiesDamage, setEnemiesDamage] = useState(random(enemies_attackDamage))
 
   // player systems
@@ -42,6 +44,7 @@ const Gamedisplay = () => {
     if (currentHealth <= 0) {
       died(setHealth)
     }
+    console.log(enemyHealth)
   }
   
   const died = (setHealth) => {
@@ -71,10 +74,13 @@ const Gamedisplay = () => {
     setCurrentLevel(val)
     resetQuestions()
     setPoints(0)
+    setEnemyHealth(currentEnemy.health)
+    setPlayerHealth(100)
   }
 
   useEffect(() => {
     setQuestion(random(eval(`questions_level_${currentLevel}`)));
+    setCurrentEnemy(eval(`enemy${currentLevel}`))
   }, [points, currentLevel]);
   
   useEffect(() => {
@@ -93,7 +99,7 @@ const Gamedisplay = () => {
               time: question.time,
             }}
           />
-          <Enemydisplay name={enemy1.name} health={enemyHealth} />
+          <Enemydisplay name={currentEnemy.name} health={enemyHealth} />
         </div>
         <Cardpicker choices={choices} getPlayerAns={getPlayerAns} />
         <Stageselecter getCurrentPage={currentPage} />
