@@ -4,13 +4,14 @@ import Cardpicker from "./Cardpicker";
 import Stageselecter from "./Stageselector";
 import Playerhealthbar from "./Playerhealthbar";
 import data from "../Questions.json";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Lazyload from "./Lazyload";
 
-const enemy1 = {name:"monster1", health: 100} // set from stage level
-const enemy2 = {name:"monster2", health: 100} // set from stage level
+const enemy1 = {name:"monster1", health: 100, img:"monster_1"}
+const enemy2 = {name:"monster2", health: 100, img:"monster_2"}
 
 const random = (data) => data[Math.floor(Math.random() * data.length)];
+
 
 const Gamedisplay = () => {
   // question
@@ -53,7 +54,7 @@ const Gamedisplay = () => {
   }
   
   const getPlayerAns = (playerAnswer) => {
-    if (playerAnswer == question.answer) {
+    if (playerAnswer === question.answer) {
       // enemies decrease health
       decreaseHealth(enemyHealth, setEnemyHealth, player_attackDamage, playerDamage, setPlayerDamage)
       if (question) question.isPass = true
@@ -78,9 +79,9 @@ const Gamedisplay = () => {
     setPlayerHealth(100)
   }
 
-  useEffect(() => {
-    setQuestion(random(eval(`questions_level_${currentLevel}`)));
-    setCurrentEnemy(eval(`enemy${currentLevel}`))
+useEffect(() => {
+  setQuestion(random(eval(`questions_level_${currentLevel}`)));
+  setCurrentEnemy(eval(`enemy${currentLevel}`))
   }, [points, currentLevel]);
   
   useEffect(() => {
@@ -99,7 +100,7 @@ const Gamedisplay = () => {
               time: question.time,
             }}
           />
-          <Enemydisplay name={currentEnemy.name} health={enemyHealth} />
+          <Enemydisplay name={currentEnemy.name} image={currentEnemy.img} health={enemyHealth} />
         </div>
         <Cardpicker choices={choices} getPlayerAns={getPlayerAns} />
         <Stageselecter getCurrentPage={currentPage} />
