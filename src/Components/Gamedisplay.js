@@ -4,14 +4,23 @@ import Cardpicker from "./Cardpicker";
 import Stageselecter from "./Stageselector";
 import Playerhealthbar from "./Playerhealthbar";
 import data from "../Questions.json";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import Lazyload from "./Lazyload";
+import {Howl, Howler} from 'howler';
 
 const enemy1 = {name:"monster1", health: 100, img:"monster_1"}
 const enemy2 = {name:"monster2", health: 100, img:"monster_2"}
 
 const random = (data) => data[Math.floor(Math.random() * data.length)];
 
+const sfx = {
+  push: new Howl({
+    src: [
+      "../Soundeffects/Bubble-1.mp3"
+    ],
+    onend: console.log("finished")
+  })
+}
 
 const Gamedisplay = () => {
   // question
