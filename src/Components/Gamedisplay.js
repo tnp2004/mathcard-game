@@ -6,10 +6,12 @@ import Playerhealthbar from "./Playerhealthbar";
 import data from "../Questions.json";
 import { useEffect, useState } from "react";
 import Lazyload from "./Lazyload";
-import {Howl, Howler} from 'howler';
+import {Howl} from 'howler';
 
-const enemy1 = {name:"monster1", health: 100, img:"monster_1"}
-const enemy2 = {name:"monster2", health: 100, img:"monster_2"}
+const enemy1 = {name:"Flowerpod", health: 100, img:"flowerboy"}
+const enemy2 = {name:"monster2", health: 100, img:"monster_1"}
+const enemy3 = {name:"monster2", health: 100, img:"monster_1"}
+const enemy4 = {name:"monster2", health: 100, img:"monster_1"}
 
 const random = (data) => data[Math.floor(Math.random() * data.length)];
 
@@ -27,6 +29,7 @@ const Gamedisplay = () => {
   const questions_level_1 = data.filter((data) => data.level === 1 && !data.isPass);
   const questions_level_2 = data.filter((data) => data.level === 2 && !data.isPass);
   const questions_level_3 = data.filter((data) => data.level === 3 && !data.isPass);
+  const questions_level_4 = data.filter((data) => data.level === 4 && !data.isPass);
   const [currentLevel, setCurrentLevel] = useState(1)
   const [currentEnemy, setCurrentEnemy] = useState(enemy1)
   const [question, setQuestion] = useState();
@@ -99,7 +102,7 @@ useEffect(() => {
 
   if (question) {
     return (      
-      <div className="container mx-auto w-3/4 text-center p-1">
+      <div className="sm:container sm:w-3/4 sm:my-5 mx-auto text-center p-1">
         <Playerhealthbar health={playerHealth} />
         <div className="flex gap-1">
           <Questiondisplay
