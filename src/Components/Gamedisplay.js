@@ -56,6 +56,8 @@ const Gamedisplay = () => {
     setHealth(currentHealth)
     if (currentHealth <= 0) {
       died(setHealth)
+      console.log("enemy= " +enemyHealth)
+      isEnemyDied()
     }
     console.log(enemyHealth)
   }
@@ -63,6 +65,13 @@ const Gamedisplay = () => {
   const died = (setHealth) => {
     setHealth(0)
     alert("died")
+  }
+
+  const isEnemyDied = () => {
+    if (points === 4 || points === 5) {
+      currentPage(currentLevel + 1)
+      console.log("level = " + currentLevel)
+    }
   }
   
   const getPlayerAns = (playerAnswer) => {
@@ -115,7 +124,7 @@ useEffect(() => {
           <Enemydisplay name={currentEnemy.name} image={currentEnemy.img} health={enemyHealth} />
         </div>
         <Cardpicker choices={choices} getPlayerAns={getPlayerAns} />
-        <Stageselecter getCurrentPage={currentPage} />
+        <Stageselecter getCurrentPage={currentPage} currentLevel={currentLevel} />
       </div>
     );
   }

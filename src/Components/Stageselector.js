@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react"
 
-const Stageselector = ({getCurrentPage}) => {
-    const [currentPage, setCurrentPage] = useState(1)
+const Stageselector = ({getCurrentPage, currentLevel}) => {
+    const [currentPage, setCurrentPage] = useState(currentLevel)
     useEffect(() => {
         getCurrentPage(currentPage)
     }, [currentPage])
+
+    useEffect(() => {
+        setCurrentPage(currentLevel)
+    }, [currentLevel])
 
     return (
         <div className="flex relative box-border">
