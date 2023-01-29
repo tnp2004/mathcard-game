@@ -155,8 +155,8 @@
     {
         "title": "Which answer should be added to ▯ ?",
         "question": "1, 2, 5, ▯, 626",
-        "answer": 626,
-        "choices": [626, 10, 381, 677, 549],
+        "answer": 26,
+        "choices": [26, 10, 381, 677, 549],
         "level": 4,
         "time": 20,
         "isPass": false
