@@ -16,7 +16,6 @@ const Enemydisplay = (props) => {
     const [isAnimate, setIsAnimate] = useState()
     const { name, image, background } = props
     const healthProgress = {width: health + "%"}
-    let prevHealth = 0;
     
     useEffect(() => {
         setHealth(props.health)
@@ -44,7 +43,7 @@ const Enemydisplay = (props) => {
                     {name}
                 </label>
                 <div className="border-4 border-black bg-slate-100 bg-opacity-30 rounded-2xl mx-auto w-3/5 my-2">
-                    <div className="bg-rose-600 font-bold rounded-xl duration-300" style={healthProgress}>{health}%</div>
+                    <div className="bg-gradient-to-l from-rose-500 to-rose-600 font-bold rounded-xl duration-300" style={healthProgress}>{health}%</div>
                 </div>
                 <img className={`mx-auto ${isAnimate ? "enemyBounce" : ''}`} src={require(`../Images/monsters/${image}.png`)} />
             </div>

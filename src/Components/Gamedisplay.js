@@ -7,6 +7,11 @@ import data from "../Questions.json";
 import { useEffect, useState } from "react";
 import Lazyload from "./Lazyload";
 import {Howl} from 'howler';
+import Swal from 'sweetalert2'
+import bgm from "../Soundeffects/Bgm.mp3"
+import Bgmbutton from "./Bgmbutton";
+import passSfx from "../Soundeffects/Pass.mp3"
+import deathSfx from "../Soundeffects/Death.mp3"
 
 const enemy1 = {name:"Flowerpod", health: 100, img:"flowerboy", bg:"forest-dirtpath"}
 const enemy2 = {name:"Cacty", health: 100, img:"cacty", bg:"desert"}
@@ -16,11 +21,23 @@ const enemy4 = {name:"monster2", health: 100, img:"monster_1", bg:"forest-dirtpa
 const random = (data) => data[Math.floor(Math.random() * data.length)];
 
 const sfx = {
-  push: new Howl({
+  bgm: new Howl({
     src: [
-      "../Soundeffects/Bubble-1.mp3"
+      bgm
     ],
+    loop: true
+  }),
+  pass: new Howl ({
+    src: [
+      passSfx
+    ]
+  }),
+  death: new Howl ({
+    src: [
+      deathSfx
+    ]
   })
+  
 }
 
 const Gamedisplay = () => {
@@ -68,20 +85,50 @@ const Gamedisplay = () => {
     setDamage(newDamage)
     const currentHealth = health - damage
     setHealth(currentHealth)
+    console.log(playerHealth)
     if (currentHealth <= 0) {
       died(setHealth)
-      isEnemyDied()
     }
   }
   
   const died = (setHealth) => {
     setHealth(0)
-    alert("died")
+    isPlayerDied()
+    isEnemyDied()
+  }
+
+  const isPlayerDied = () => {
+    if (playerHealth <= 15) {
+      sfx.death.play()
+      Swal.fire({
+        icon: "warning",
+        title: `You are defeated by ${currentEnemy.name}`,
+        showDenyButton: true,
+        confirmButtonText: "Retry",
+        denyButtonText: "Mainmenu"
+      }).then(result => {
+        if (result.isConfirmed) currentPage(currentLevel)
+        else if (result.isDenied || result.dismiss) window.location = "/"
+      })
+    }
+    return
   }
 
   const isEnemyDied = () => {
-    if (points === 4 || points === 5) {
-      currentPage(currentLevel + 1)
+    if (points === 4 && playerHealth > 15) {
+      sfx.pass.play()
+      Swal.fire({
+        icon: "success",
+        title: `Congratulations!`,
+        text: `You have defeated ${currentEnemy.name}`,
+        showDenyButton: true,
+        confirmButtonText: "Next stage",
+        denyButtonText: "Mainmenu"
+      }).then(result => {
+        if (result.isConfirmed) currentPage(currentLevel + 1)
+        else if (result.isDenied || result.dismiss) window.location = "/"
+      })
+      return true
     }
   }
   
@@ -111,6 +158,14 @@ const Gamedisplay = () => {
     setPlayerHealth(100)
   }
 
+  const isBgm = (value) => {
+    if (value) {
+      sfx.bgm.play()
+    }else {
+      sfx.bgm.pause()
+    }
+  }
+
   useEffect(() => {
     if (currentLevel > 4) return // if clear all stages
     setQuestion(random(getQuestion()));
@@ -131,6 +186,7 @@ const Gamedisplay = () => {
   if (question) {
     return (      
       <div className="sm:container sm:w-3/4 sm:my-5 mx-auto text-center p-1 drop-shadow-lg">
+        <Bgmbutton bgm={isBgm} />
         <Playerhealthbar health={playerHealth} />
         <div className="flex gap-1">
           <Questiondisplay
