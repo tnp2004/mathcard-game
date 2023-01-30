@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import musicIcon from "../Images/musical-note.png"
 
-const Bgmbutton = ({bgm}) => {
-    const [isPlay, setIsPlay] = useState(false)
+const Bgmbutton = ({bgm, currentBgm}) => {
+    const [isPlay, setIsPlay] = useState(currentBgm)
+
+    useEffect(() => {
+        setIsPlay(currentBgm)
+    }, [currentBgm])
 
     return (
         <button onClick={() => {

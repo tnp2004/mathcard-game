@@ -41,6 +41,10 @@ const sfx = {
 }
 
 const Gamedisplay = () => {
+
+  // bgm
+  const [currentBgm, setCurrnetBgm] = useState()
+
   // question
   const [currentLevel, setCurrentLevel] = useState(1)
   const [currentEnemy, setCurrentEnemy] = useState(enemy1)
@@ -85,7 +89,6 @@ const Gamedisplay = () => {
     setDamage(newDamage)
     const currentHealth = health - damage
     setHealth(currentHealth)
-    console.log(playerHealth)
     if (currentHealth <= 0) {
       died(setHealth)
     }
@@ -159,12 +162,17 @@ const Gamedisplay = () => {
   }
 
   const isBgm = (value) => {
+    setCurrnetBgm(value)
     if (value) {
       sfx.bgm.play()
     }else {
       sfx.bgm.pause()
     }
   }
+
+  useEffect(() => {
+    if (window.location.pathname == "/") sfx.bgm.stop()
+  }, [window.location])
 
   useEffect(() => {
     if (currentLevel > 4) return // if clear all stages
@@ -186,7 +194,7 @@ const Gamedisplay = () => {
   if (question) {
     return (      
       <div className="sm:container sm:w-3/4 sm:my-5 mx-auto text-center p-1 drop-shadow-lg">
-        <Bgmbutton bgm={isBgm} />
+        <Bgmbutton bgm={isBgm} currentBgm={currentBgm} />
         <Playerhealthbar health={playerHealth} />
         <div className="flex gap-1">
           <Questiondisplay
