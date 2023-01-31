@@ -1,30 +1,23 @@
 import { NavLink } from "react-router-dom";
-import logo from "../Images/logo-cardgame.png";
-import mountain1 from "../Images/mountain-1.png";
-import mountain2 from "../Images/mountain-2.png";
-import plus from "../Images/plus.png";
-import minus from "../Images/minus.png";
+import logo from "../Images/icon-mathcard.png";
 import Howtoplay from "./Howtoplay";
+import arrow from "../Images/down-arrow.png"
 
 const Homepage = () => {
   return (
     <div>
-      <div className="container-fluid mx-auto text-center h-screen box-border">
-        <div className="absolute flex top-0 justify-between mx-auto w-full px-32">
-          <img src={plus} />
-          <img src={minus} />
-        </div>
-        <div className="flex justify-between mx-auto">
-          <img src={mountain1} />
-          <div className="my-52 static">
-            <img className="mx-auto bg-zinc-400 rounded-full p-5" src={logo} />
-            <NavLink to="/game">
-              <button className="bg-gradient-to-r from-violet-500 to-violet-700 hover:from-violet-700 hover:to-violet-900 drop-shadow-2xl text-white mt-52 font-bold py-2 px-4 rounded w-2/6 h-12">
-                Play
-              </button>
-            </NavLink>
+      <div className="h-screen container-fluid box-border bg-gradient-to-b from-amber-200 p-5">
+        <div className="text-center">
+          <img className="mx-auto drop-shadow-xl" src={logo} />
+          <NavLink to="/game">
+            <button className="drop-shadow-xl my-56 py-2 px-3 bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none">Play a game</button>
+          </NavLink>
+          <div className="animate-bounce drop-shadow-xl">
+           <a href="#howToPlay">
+            <label>how to play ?</label>
+            <img className="mx-auto" src={arrow} />
+           </a>
           </div>
-          <img src={mountain2} />
         </div>
       </div>
       <Howtoplay/>
