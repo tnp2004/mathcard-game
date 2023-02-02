@@ -15,7 +15,7 @@ const Cardelement = ({answer, getPlayerAns}) => {
         <div onClick={() => {
             getPlayerAns(answer)
             sfx.click.play()
-            }}  className="border-4 border-violet-900 bg-white group cursor-pointer hover:border-dashed rounded-xl mx-auto drop-shadow-md w-48 h-64">
+            }}  className="border-4 border-violet-900 bg-white group cursor-pointer hover:border-dashed rounded-xl mx-auto drop-shadow-xl w-48 h-64">
             <div className="text-violet-500 group-hover:text-violet-700 group-hover:underline underline-offset-2 text-4xl my-24">{answer}</div>
         </div>
     )

@@ -13,6 +13,7 @@ import Bgmbutton from "./Bgmbutton";
 import passSfx from "../Soundeffects/Pass.mp3"
 import deathSfx from "../Soundeffects/Death.mp3"
 import Cleardisplay from "./Cleardisplay";
+import { NavLink } from "react-router-dom";
 
 const enemy1 = {name:"Flowerpod", health: 100, img:"flowerboy", bg:"forest-dirtpath"}
 const enemy2 = {name:"Cacty", health: 100, img:"cacty", bg:"desert"}
@@ -196,8 +197,12 @@ const Gamedisplay = () => {
   }
 
   if (question) {
+    console.log("re rendering")
     return (      
       <div className="sm:container sm:w-3/4 sm:my-5 mx-auto text-center p-1 drop-shadow-lg">
+        <NavLink to="/">
+          <button className="bg-violet-500 hover:bg-violet-500 text-white hover:text-black rounded p-2 absolute left-0 drop-shadow-md">back</button>
+        </NavLink>
         <Bgmbutton bgm={isBgm} currentBgm={currentBgm} />
         <Playerhealthbar health={playerHealth} />
         <div className="flex gap-1">

@@ -36,7 +36,7 @@ const Enemydisplay = (props) => {
     }
     
     return (
-        <div className="border-solid border-4  border-black bg-green-200 flex-auto bg-auto bg-center rounded" style={{backgroundImage: `url(${require(`../Images/backgrounds/${background}.png`)})`}}>
+        <div className="border-solid border-4 border-black bg-green-200 flex-auto bg-auto bg-center rounded-tr-xl" style={{backgroundImage: `url(${require(`../Images/backgrounds/${background}.png`)})`}}>
             <div className="my-5">
                 <label className="relative font-bold text-xl text-rose-600 bg-slate-900 bg-opacity-40 rounded-lg p-1 inline">
                     <img src={require("../Images/evil.png")} className="inline mx-1 w-5" />
