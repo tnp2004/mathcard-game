@@ -12,6 +12,7 @@ import bgm from "../Soundeffects/Bgm.mp3"
 import Bgmbutton from "./Bgmbutton";
 import passSfx from "../Soundeffects/Pass.mp3"
 import deathSfx from "../Soundeffects/Death.mp3"
+import playerhurtSfx from "../Soundeffects/playerHurt.wav"
 import Cleardisplay from "./Cleardisplay";
 import { NavLink } from "react-router-dom";
 
@@ -38,8 +39,13 @@ const sfx = {
     src: [
       deathSfx
     ]
+  }),
+  playerHurt: new Howl ({
+    src: [
+      playerhurtSfx
+    ],
+    volume: 0.5
   })
-  
 }
 
 const Gamedisplay = () => {
@@ -139,6 +145,7 @@ const Gamedisplay = () => {
       } else {
         // player decrease health
         decreaseHealth(playerHealth, setPlayerHealth, enemies_attackDamage, enemiesDamage, setEnemiesDamage)
+        sfx.playerHurt.play()
       }
     }
     
@@ -163,6 +170,12 @@ const Gamedisplay = () => {
       }else {
         sfx.bgm.pause()
       }
+    }
+
+    const timesOut = () => {
+      decreaseHealth(playerHealth, setPlayerHealth, enemies_attackDamage, enemiesDamage, setEnemiesDamage)
+      sfx.playerHurt.play()
+      question.time += 1
     }
 
     // check is player died ?
@@ -212,6 +225,9 @@ const Gamedisplay = () => {
               question: question.question,
               time: question.time,
             }}
+
+            timesout={timesOut}
+            playerhealth={playerHealth}
           />
           <Enemydisplay name={currentEnemy.name} image={currentEnemy.img} background={currentEnemy.bg} health={enemyHealth} />
         </div>

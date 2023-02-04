@@ -2,11 +2,12 @@ import { NavLink } from "react-router-dom";
 import logo from "../Images/icon-mathcard.png";
 import Howtoplay from "./Howtoplay";
 import arrow from "../Images/down-arrow.png"
+import backround from "../Images/math-pic.png"
 
 const Homepage = () => {
   return (
     <div>
-      <div className="h-screen container-fluid box-border bg-gradient-to-b from-amber-200 p-5">
+      <div className="bg h-screen container-fluid box-border bg-gradient-to-b from-amber-200 p-5" style={{backgroundImage: `url(${backround})`}}>
         <div className="text-center">
           <img className="mx-auto drop-shadow-xl" src={logo} alt="logo" />
           <NavLink to="/game">
