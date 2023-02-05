@@ -8,14 +8,16 @@ import { useEffect, useState } from "react";
 import Lazyload from "./Lazyload";
 import {Howl} from 'howler';
 import Swal from 'sweetalert2'
-import bgm from "../Soundeffects/Bgm.mp3"
 import Bgmbutton from "./Bgmbutton";
-import passSfx from "../Soundeffects/Pass.mp3"
-import deathSfx from "../Soundeffects/Death.mp3"
 import playerhurtSfx from "../Soundeffects/playerHurt.wav"
 import Cleardisplay from "./Cleardisplay";
 import { NavLink } from "react-router-dom";
 import 'animate.css';
+
+// sound effects
+import bgm from "../Soundeffects/Bgm.mp3"
+import passSfx from "../Soundeffects/Pass.mp3"
+import deathSfx from "../Soundeffects/Death.mp3"
 
 const enemy1 = {name:"Flowerpod", health: 100, img:"flowerboy", bg:"forest-dirtpath"}
 const enemy2 = {name:"Cacty", health: 100, img:"cacty", bg:"desert"}
@@ -211,7 +213,6 @@ const Gamedisplay = () => {
   }
 
   if (question) {
-    console.log("re rendering")
     return (      
       <div className="sm:container sm:w-3/4 sm:my-5 mx-auto text-center p-1 drop-shadow-lg animate__animated animate__bounceIn">
         <NavLink to="/">

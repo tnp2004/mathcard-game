@@ -108,7 +108,7 @@
         "isPass": false
     },
     {
-        "title": "What is the largest value of x ?",
+        "title": "What is the smallest value of x ?",
         "question": "x² + 18x + 17",
         "answer": -17,
         "choices": [-17, -1, -18, -5, -13],
