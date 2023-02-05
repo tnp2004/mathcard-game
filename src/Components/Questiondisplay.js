@@ -16,7 +16,7 @@ const Questiondisplay = (props) => {
 
     return (
         <div className="border-4 rounded-tl-xl  border-black bg-zinc-50 flex-auto justify-items-center items-center">
-            <h1 className="text-4xl my-10">{title}</h1>
+            <h1 className="text-4xl my-10 font-bold">{title}</h1>
             <div>
                 {time ? <Countdown seconds={time} timesout={props.timesout} playerhealth={props.playerhealth} /> : ""}
             </div>

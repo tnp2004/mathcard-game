@@ -36,14 +36,14 @@ const Enemydisplay = (props) => {
     }
     
     return (
-        <div className="border-solid border-4 border-black bg-green-200 flex-auto bg-auto bg-center rounded-tr-xl" style={{backgroundImage: `url(${require(`../Images/backgrounds/${background}.png`)})`}}>
-            <div className="my-5">
+        <div className="border-solid border-4 border-black bg-green-200 flex-auto bg-auto bg-center bg-no-repeat rounded-tr-xl" style={{backgroundImage: `url(${require(`../Images/backgrounds/${background}.png`)})`}}>
+            <div className="my-12">
                 <label className="relative font-bold text-xl text-rose-600 bg-slate-900 bg-opacity-40 rounded-lg p-1 inline">
                     <img src={require("../Images/evil.png")} className="inline mx-1 w-5" />
                     {name}
                 </label>
-                <div className="border-4 border-black bg-slate-100 bg-opacity-30 rounded-2xl mx-auto w-3/5 my-2">
-                    <div className="bg-gradient-to-l from-rose-500 to-rose-600 font-bold rounded-xl duration-300" style={healthProgress}>{health}%</div>
+                <div className={`animate__animated ${isAnimate ? "animate__headShake" : ''} border-4 border-black bg-slate-100 bg-opacity-30 rounded-2xl w-3/5 mx-auto my-2`}>
+                    <div className="bg-gradient-to-l from-rose-500 to-rose-600 font-bold rounded-xl duration-300 " style={healthProgress}>{health}%</div>
                 </div>
                 <img className={`mx-auto ${isAnimate ? "enemyBounce" : ''}`} src={require(`../Images/monsters/${image}.png`)} />
             </div>
