@@ -163,9 +163,9 @@
     },
     {
         "title": "What is the value of x ?",
-        "question": "x³ = 125",
-        "answer": 5,
-        "choices": [5, 25, 50, 10, "no correct answer"],
+        "question": "x = 9 - 9 ÷ 9 + 9 - 9 ÷ 9",
+        "answer": 16,
+        "choices": [16, 0, -0.11, 9, "no correct answer"],
         "level": 4,
         "time": 20,
         "isPass": false
