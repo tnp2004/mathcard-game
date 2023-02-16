@@ -235,6 +235,7 @@ const Gamedisplay = () => {
         </div>
         <Cardpicker choices={choices} getPlayerAns={getPlayerAns} />
         <Stageselecter getCurrentPage={currentPage} currentLevel={currentLevel} />
+        <p className="hidden lg:block text-lg text-muted text-center mb-2">*** On laptops, please zoom out to 75% for the best experience. ***</p>
       </div>
     );
   }

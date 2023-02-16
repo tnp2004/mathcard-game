@@ -14,7 +14,6 @@ const Howtoplay = () => {
                 <h1>4. If time runs out, you will be attacked by enemies and time will count down again.</h1>
                 <h1>5. If you pick the correct card You will attack the enemy, if not you will be attacked by the enemy.</h1>
            </div>
-            <p className="text-lg text-rose-600 text-center mb-2">*** On laptops, please zoom out to 75% for the best experience. ***</p>
         </div>
     )
 }
