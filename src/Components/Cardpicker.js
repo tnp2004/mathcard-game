@@ -13,7 +13,7 @@ const Cardpicker = (props) => {
     const shuffledChoices = choices.sort((a, b) => 0.5 - Math.random())
     
     return (
-        <div className="border-4 border-black rounded-b-xl my-1 p-5 bg-green-100 bg-opacity-70 flex justify-items-center items-center gap-5">
+        <div className="border-4 border-black rounded-b-xl my-1 p-1 sm-p-2 lg:p-5 bg-green-100 bg-opacity-70 flex justify-items-center items-center gap-1 lg:gap-5">
             {shuffledChoices.map((value, index) => <Cardelement key={index} answer={value} getPlayerAns={getPlayerAns} />)}
         </div>
     )

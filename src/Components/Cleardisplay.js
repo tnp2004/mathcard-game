@@ -17,9 +17,9 @@ const Cleardisplay = () => {
     sfx.Congratulations.play()
 
     return (
-        <div className="mx-auto text-center text-5xl">
-            <h1 className="my-20 h-40 font-extrabold text-transparent text-9xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Congratulations</h1>
-            <h1 className="my-20 ">Now you have cleared the last stage.</h1>
+        <div className="mx-auto text-center">
+            <h1 className="my-20 h-40 font-extrabold text-transparent text-5xl md:text-7xl lg:text-9xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Congratulations</h1>
+            <h1 className="my-20  text-3xl xl:text-5xl">Now you have cleared the last stage.</h1>
             <img className="mx-auto animate-bounce my-12" src={arrow} />
             <NavLink className="inline-block mx-12" to="/">
                 <button className="drop-shadow-xl py-2 px-3 bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none">Homepage</button>
