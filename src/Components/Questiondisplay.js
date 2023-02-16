@@ -16,11 +16,11 @@ const Questiondisplay = (props) => {
 
     return (
         <div className="border-4 rounded-tl-xl  border-black bg-zinc-50 flex-auto justify-items-center items-center">
-            <h1 className="text-4xl my-10 font-bold">{title}</h1>
+            <h1 className="text-xl p-2 lg:text-4xl my-10 font-bold">{title}</h1>
             <div>
                 {time ? <Countdown seconds={time} timesout={props.timesout} playerhealth={props.playerhealth} /> : ""}
             </div>
-            <div className="text-6xl my-24">
+            <div className="text-xl my-12 md:text-4xl lg:text-6xl lg:my-24">
               <p>{question}</p>
             </div>
         </div>

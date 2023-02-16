@@ -15,7 +15,7 @@ const Homepage = () => {
             <button className="animate__animated animate__bounceIn drop-shadow-xl my-56 py-2 px-3 bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none">Play a game</button>
           </NavLink>
           <div className="animate-bounce drop-shadow-xl">
-           <a href="#howToPlay">
+           <a href="#howToPlay" className="hidden md:block">
             <label>how to play ?</label>
             <img className="mx-auto" src={arrow} alt="how to play" />
            </a>

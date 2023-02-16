@@ -49,7 +49,7 @@ const Countdown = (props) => {
   
     return (
       <div>
-        <img src={clockIcon} className="inline w-12" /> <p className="font-bold text-lg">{timeLeft} seconds</p>
+        <img src={clockIcon} className="inline w-12" /> <p className="font-bold text-sm lg:text-lg">{timeLeft} seconds</p>
       </div>
     );
 }
