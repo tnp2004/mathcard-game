@@ -12,9 +12,9 @@ const Homepage = () => {
         <div className="text-center">
           <img className="mx-auto drop-shadow-xl animate__animated animate__rubberBand" src={logo} alt="logo" />
           <NavLink to="/game">
-            <button className="animate__animated animate__bounceIn drop-shadow-xl my-56 py-2 px-3 bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none">Play a game</button>
+            <button className="animate__animated animate__bounceIn drop-shadow-xl mt-32 py-2 px-3 bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none">Play a game</button>
           </NavLink>
-          <div className="animate-bounce drop-shadow-xl">
+          <div className="animate-bounce drop-shadow-xl my-36">
            <a href="#howToPlay" className="hidden md:block">
             <label>how to play ?</label>
             <img className="mx-auto" src={arrow} alt="how to play" />

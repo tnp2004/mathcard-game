@@ -213,8 +213,8 @@ const Gamedisplay = () => {
   }
 
   if (question) {
-    return (      
-      <div className="sm:container sm:w-3/4 sm:my-5 mx-auto text-center p-1 drop-shadow-lg animate__animated animate__bounceIn">
+    return (
+      <div className="container sm:w-3/4 sm:my-5 mx-auto text-center p-1 drop-shadow-lg animate__animated animate__bounceIn">
         <NavLink to="/">
           <button onClick={() => isBgm(false)} className="bg-violet-500 hover:bg-violet-500 text-white hover:text-black rounded p-2 absolute left-0 drop-shadow-md">back</button>
         </NavLink>
