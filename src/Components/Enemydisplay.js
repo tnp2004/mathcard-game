@@ -42,7 +42,7 @@ const Enemydisplay = (props) => {
                     <img src={require("../Images/evil.png")} className="inline mx-1 w-5" />
                     {name}
                 </label>
-                <div className={`animate__animated ${isAnimate ? "animate__headShake" : ''} border-4 border-black bg-slate-100 bg-opacity-30 rounded-2xl w-3/5 mx-auto my-2`}>
+                <div className={`animate__animated ${isAnimate ? "animate__headShake" : ''} border-4 border-black bg-slate-100 bg-opacity-30 rounded-2xl xl:w-3/5 mx-auto my-2`}>
                     <div className="bg-gradient-to-l from-rose-500 to-rose-600 font-bold rounded-xl duration-300 " style={healthProgress}>{health}%</div>
                 </div>
                 <img className={`mx-auto ${isAnimate ? "enemyBounce" : ''}`} src={require(`../Images/monsters/${image}.png`)} />

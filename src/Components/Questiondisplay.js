@@ -20,7 +20,7 @@ const Questiondisplay = (props) => {
             <div>
                 {time ? <Countdown seconds={time} timesout={props.timesout} playerhealth={props.playerhealth} /> : ""}
             </div>
-            <div className="text-xl my-12 md:text-4xl lg:text-6xl lg:my-24">
+            <div className="text-xl my-12 md:text-4xl xl:text-6xl lg:my-24">
               <p>{question}</p>
             </div>
         </div>
