@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/tnp2004/mathcard-game/static/css/main.08a46059.css",
+    "main.js": "/tnp2004/mathcard-game/static/js/main.d33dc944.js",
+    "static/media/Bgm.mp3": "/tnp2004/mathcard-game/static/media/Bgm.ad3f3d91a68022ec5b63.mp3",
+    "static/media/mountain.png": "/tnp2004/mathcard-game/static/media/mountain.b391279e894d1fec14da.png",
+    "static/media/forest-dirtpath.png": "/tnp2004/mathcard-game/static/media/forest-dirtpath.b47f88ebb4335bc1d483.png",
+    "static/media/cave.png": "/tnp2004/mathcard-game/static/media/cave.f5015b7db6263311a7d6.png",
+    "static/media/desert.png": "/tnp2004/mathcard-game/static/media/desert.290b7776822f8201f1c2.png",
+    "static/media/howtoplay.png": "/tnp2004/mathcard-game/static/media/howtoplay.cfe5aa207fe9abe87c95.png",
+    "static/media/Congratulations.mp3": "/tnp2004/mathcard-game/static/media/Congratulations.c32635867888260d2f9e.mp3",
+    "static/media/Pass.mp3": "/tnp2004/mathcard-game/static/media/Pass.fa346db17bb03f9aaeca.mp3",
+    "static/media/playerHurt.wav": "/tnp2004/mathcard-game/static/media/playerHurt.9f26ec59432cc504e38c.wav",
+    "static/media/Death.mp3": "/tnp2004/mathcard-game/static/media/Death.197bc3e69012f726bfd7.mp3",
+    "static/media/math-pic.png": "/tnp2004/mathcard-game/static/media/math-pic.53cf012893498d846a28.png",
+    "static/media/Click.wav": "/tnp2004/mathcard-game/static/media/Click.938a586906b78db700f2.wav",
+    "static/media/Hit.wav": "/tnp2004/mathcard-game/static/media/Hit.ef7db293353ffbeb50ae.wav",
+    "static/media/icon-mathcard.png": "/tnp2004/mathcard-game/static/media/icon-mathcard.9780eb534166b8f5dd42.png",
+    "index.html": "/tnp2004/mathcard-game/index.html",
+    "main.08a46059.css.map": "/tnp2004/mathcard-game/static/css/main.08a46059.css.map",
+    "main.d33dc944.js.map": "/tnp2004/mathcard-game/static/js/main.d33dc944.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08a46059.css",
+    "static/js/main.d33dc944.js"
+  ]
+}
