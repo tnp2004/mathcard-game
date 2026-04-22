@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# MathCard Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fun math game where you fight monsters by solving math problems!
 
-## Available Scripts
+<img width="1479" height="863" alt="image" src="https://github.com/user-attachments/assets/32ae4cbd-9990-49a8-8651-a9cb2e73907f" />
 
-In the project directory, you can run:
+## What is this?
 
-### `npm start`
+This is a web game made with React. You pick math cards to answer questions and defeat cute monsters.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to play
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Click **Start Game** on the home page
+2. Pick a level (1 is easy, 4 is hard)
+3. Look at the math question on the screen
+4. Click the card with the right answer
+5. Answer correctly to hit the monster!
+6. Answer wrong or run out of time, and the monster hits you
+7. Beat all monsters to win!
 
-### `npm test`
+## Game Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **20 math questions** across 4 difficulty levels
+- **5 cute monsters** to battle
+- **Timer** - answer before time runs out!
+- **Sound effects** and background music
+- **Health bar** - don't let it reach zero!
+- **Different backgrounds** for each stage
 
-### `npm run build`
+## Math Topics
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Level | Topics |
+|-------|--------|
+| 1 | Basic addition and subtraction |
+| 2 | Fractions and decimals |
+| 3 | Algebra (finding x) |
+| 4 | Logic puzzles and tricky math |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to run the game
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Install packages
+npm install
 
-### `npm run eject`
+# Start the game
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Then open your browser and go to `http://localhost:3000`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React
+- React Router
+- Tailwind CSS
+- Howler (for sounds)
+- SweetAlert2 (for popups)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project files
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `src/Components/` - Game parts (homepage, battle screen, cards, etc.)
+- `src/Images/` - Monster pictures and backgrounds
+- `src/Soundeffects/` - Game sounds and music
+- `src/Questions.json` - All the math questions
